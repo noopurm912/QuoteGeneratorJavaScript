@@ -67,11 +67,13 @@ function tweetQuote(){
 
 function speakQuote(){
     // const speakquotes = quoteText.innerText;
-    const msgToSpeak = new SpeechSynthesisUtterance(quoteText.innerText);
+    let msgToSpeak = new SpeechSynthesisUtterance(quoteText.innerText);
     msgToSpeak.pitch = 2;
     msgToSpeak.volume = .7;
     msgToSpeak.lang ='en-US';
-    speechSynthesis.speak(msgToSpeak);      
+    speechSynthesis.speak(msgToSpeak);   
+    
+    
     
 }
     
