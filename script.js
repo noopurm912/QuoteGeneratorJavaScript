@@ -7,7 +7,7 @@ const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
-
+const speakerBtn = document.getElementById('speaker')
 // Show Loading
 
 function showloadingSpinner() {
@@ -65,6 +65,16 @@ function tweetQuote(){
     window.open(twitterUrl, '_blank');
 }
 
+function speakQuote(){
+    // const speakquotes = quoteText.innerText;
+    const msgToSpeak = new SpeechSynthesisUtterance(quoteText.innerText);
+    msgToSpeak.pitch = 2;
+    msgToSpeak.volume = .7;
+    msgToSpeak.lang ='en-US';
+    speechSynthesis.speak(msgToSpeak);      
+    
+}
+    
 //Event Listeners
 
 //New Quote Button
@@ -73,7 +83,7 @@ newQuoteBtn.addEventListener('click', getQuote);
 //Twitter Button
 twitterBtn.addEventListener('click', tweetQuote);
 
-// Loader
-
+//Speaker Button 
+speakerBtn.addEventListener('click', speakQuote);
 // on Load
 getQuote();
